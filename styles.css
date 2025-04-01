@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    text-align: center;
+}
+
+canvas {
+    border: 3px solid #2c3e50;
+    border-radius: 10px;
+    background-color: #87CEEB;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.score, .high-score {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.score {
+    top: 20px;
+}
+
+.high-score {
+    top: 50px;
+}
+
+.start-screen, .game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    color: white;
+}
+
+.start-screen h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    color: #f1c40f;
+}
+
+.game-over-screen h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #e74c3c;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.instructions {
+    margin-top: 20px;
+    color: #ecf0f1;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+    
+    .start-screen h1 {
+        font-size: 36px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
