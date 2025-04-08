@@ -3,39 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Flappy Bird Enhanced - A modern remake of the classic game"
+    />
+    <meta name="theme-color" content="#87CEEB" />
     <title>Flappy Bird Enhanced</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
   </head>
   <body>
     <div class="game-container">
       <canvas id="gameCanvas"></canvas>
-      <div class="score">Score: <span id="scoreValue">0</span></div>
-      <div class="high-score">
-        High Score: <span id="highScoreValue">0</span>
+      <div class="score-display">
+        <div class="score">Score: <span id="scoreValue">0</span></div>
+        <div class="high-score">
+          High Score: <span id="highScoreValue">0</span>
+        </div>
       </div>
-      <div id="gameOverScreen" class="game-over-screen">
+
+      <div id="startScreen" class="screen">
+        <h1>Flappy Bird <span class="enhanced">Enhanced</span></h1>
+        <button id="startButton" class="pulse">Start Game</button>
+        <div class="controls">
+          <p class="instructions">Controls:</p>
+          <div class="control-icons">
+            <span class="key">SPACE</span>
+            <span class="key">↑</span>
+            <span class="key">CLICK</span>
+            <span class="key">TAP</span>
+          </div>
+        </div>
+        <div class="powerup-info">
+          <p>Look for power-ups during gameplay!</p>
+          <div class="powerup-icons">
+            <div class="powerup" title="Invincibility">
+              <span class="icon">🛡️</span>
+            </div>
+            <div class="powerup" title="Slow Motion">
+              <span class="icon">🐌</span>
+            </div>
+            <div class="powerup" title="Double Points">
+              <span class="icon">✖️2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="screen hidden">
         <h2>Game Over!</h2>
-        <p>Your score: <span id="finalScore">0</span></p>
-        <button id="restartButton">Play Again</button>
+        <p class="final-score">Your score: <span id="finalScore">0</span></p>
+        <p class="high-score-message" id="highScoreMessage"></p>
+        <div class="button-group">
+          <button id="restartButton">Play Again</button>
+          <button id="shareButton">Share Score</button>
+        </div>
       </div>
-      <div id="startScreen" class="start-screen">
-        <h1>Flappy Bird</h1>
-        <button id="startButton">Start Game</button>
-        <p class="instructions">Press SPACE, UP ARROW or click/tap to flap!</p>
+
+      <div id="pauseScreen" class="screen hidden">
+        <h2>Game Paused</h2>
+        <button id="resumeButton">Resume</button>
+        <button id="quitButton">Quit</button>
       </div>
     </div>
+
+    <!-- Audio Elements -->
     <audio
       id="flapSound"
       src="https://assets.mixkit.co/sfx/preview/mixkit-bird-whistling-2290.mp3"
+      preload="auto"
     ></audio>
     <audio
       id="scoreSound"
       src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="powerupSound"
+      src="https://assets.mixkit.co/sfx/preview/mixkit-extra-bonus-in-a-video-game-2045.mp3"
+      preload="auto"
     ></audio>
     <audio
       id="gameOverSound"
       src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3"
+      preload="auto"
     ></audio>
-    <script src="script.js"></script>
+    <audio
+      id="backgroundMusic"
+      loop
+      src="https://assets.mixkit.co/music/preview/mixkit-game-show-suspense-waiting-668.mp3"
+      preload="auto"
+    ></audio>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel">
+      <button id="settingsButton" aria-label="Settings">⚙️</button>
+      <div id="settingsMenu" class="hidden">
+        <div class="setting">
+          <label for="musicToggle">Music:</label>
+          <input type="checkbox" id="musicToggle" checked />
+        </div>
+        <div class="setting">
+          <label for="soundToggle">Sounds:</label>
+          <input type="checkbox" id="soundToggle" checked />
+        </div>
+        <div class="setting">
+          <label for="themeSelect">Theme:</label>
+          <select id="themeSelect">
+            <option value="day">Day Mode</option>
+            <option value="night">Night Mode</option>
+            <option value="retro">Retro</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
   </body>
 </html>

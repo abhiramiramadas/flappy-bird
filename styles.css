@@ -26,26 +26,26 @@ canvas {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.score, .high-score {
+.score-display {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.score, .high-score {
     font-size: 24px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    z-index: 10;
+    margin: 5px 0;
 }
 
-.score {
-    top: 20px;
-}
-
-.high-score {
-    top: 50px;
-}
-
-.start-screen, .game-over-screen {
+.screen {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,22 +55,32 @@ canvas {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 20;
     color: white;
+    border-radius: 10px;
 }
 
-.start-screen h1 {
+#startScreen h1 {
     font-size: 48px;
     margin-bottom: 30px;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
     color: #f1c40f;
 }
 
-.game-over-screen h2 {
+.enhanced {
+    color: #2ecc71;
+}
+
+#gameOverScreen h2 {
     font-size: 36px;
     margin-bottom: 20px;
     color: #e74c3c;
+}
+
+.final-score, .high-score-message {
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 button {
@@ -96,15 +106,127 @@ button:active {
     transform: translateY(1px);
 }
 
-.instructions {
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.controls {
     margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.instructions {
     color: #ecf0f1;
     font-size: 16px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+}
+
+.control-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.key {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.powerup-info {
+    margin-top: 20px;
+}
+
+.powerup-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.powerup {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
 }
 
 .hidden {
     display: none;
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.settings-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 30;
+}
+
+#settingsButton {
+    background-color: rgba(44, 62, 80, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settingsMenu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: rgba(44, 62, 80, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+    width: 180px;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.setting:last-child {
+    margin-bottom: 0;
+}
+
+select, input[type="checkbox"] {
+    cursor: pointer;
 }
 
 @media (max-width: 500px) {
@@ -113,12 +235,21 @@ button:active {
         height: auto;
     }
     
-    .start-screen h1 {
-        font-size: 36px;
+    #startScreen h1 {
+        font-size: 32px;
     }
     
     button {
         padding: 10px 20px;
-        font-size: 18px;
+        font-size: 16px;
+    }
+    
+    .powerup {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .icon {
+        font-size: 16px;
     }
 }
