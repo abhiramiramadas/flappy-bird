@@ -1,7 +1,7 @@
 Flappy Bird Enhanced 🐦🎮
 A modern, responsive remake of the classic Flappy Bird game with enhanced visuals, sound effects, and smooth gameplay. Built with HTML5 Canvas, JavaScript, and CSS.
 
-Flappy Bird Screenshot (Replace with actual screenshot)
+Flappy Bird Screenshot 
 
 Features ✨
 Responsive Design: Works on desktop and mobile devices
