@@ -2,6 +2,9 @@
 
 A modern remake of the classic *Flappy Bird* game with enhanced features, improved visuals, and power-ups. Built using HTML5, CSS, and JavaScript, this version introduces a fresh take on the iconic game with customizable themes, responsive design, and immersive audio effects.
 
+#link is live at: https://abhiramiramadas.github.io/flappy-bird/
+
+
 ## Table of Contents
 
 - [Overview](#overview)
